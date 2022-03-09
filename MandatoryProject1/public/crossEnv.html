@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" type="text/css" href="/style.css">
+    <title>About Cross-env</title>
+</head>
+<body>
+    <nav class="nav-bar">
+        <a class="nav-bar-item" href="/">Home</a>
+        <div class="dropdown">
+            <button class="dropbtn"> Content
+                <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+                <a href="/courseStart">Start of the course</a>
+                <a href="/express">About Express</a>
+                <a href="/Nodemon">About Nodemon</a>
+                <a href="/crudRestApi">CRUD REST API</a>
+                <a href="/expressWideWeb">Express Wide Web</a>
+                <a href="/crossEnv">About cross-env</a>
+            </div>
+        </div>
+        <a class="nav-bar-item" href="/aboutme">About me</a>
+        <img src="/dk_logo.png" id="logo">
+    </nav>
+    <div class="main-page-container">
+        <div id="container-top">
+            <div id="header">
+                <h2>Cross-env explained</h2>
+            </div>
+            <div id="container-content">
+                <div id="row-container">
+                    <img src="/package_script.png" id="pic-content">
+                    <img src="/final_applisten.png" id="pic-content">
+                </div>
+                <p>
+                    Another very useful "npm package" which we used and installed manually is the "cross-env" package. This package is
+                    extremely helpful for running scripts and setting environment variable completely independently of the platform 
+                    (Windows, Linux, MacOS...). To installed, the process is quite similar to installing the "express" package - we
+                    run this command ("npm install --save-dev cross-env") in our terminal at the wanted project directory. This will
+                    create this "devDependencies" module on, line 8 of the left picture, and once again it will state the dependency
+                    and its version. Now we can use the "cross-env" package. <br><br>
+                    On line 2, we defined a key-value pair where the key is called "scripts", and the value is a curly-bracket annotation
+                    (as an annotation for an empty object) in which we find one more key-value pair. We created this key-value pair on
+                    our own, and we called the key "start-dev" and value "cross-env PORT=8081 nodemon app.js". So here, we are basically
+                    defining a few things:
+                    <li>First thing mentioned is the "cross-env" package which allows the cross-platform usage</li>
+                    <li>
+                        Then we mention this "PORT=8081" - this is an environment variable, and it is accessed in the "app.js"
+                        on line 69 (right picture) by saying "process.env.PORT", saying that the server should run on the port which we
+                        assign in this script
+                    </li>
+                    <li>
+                        And last is the actual server "run" method which is in this case defined by <a href="/nodemon">NODEMON</a>,
+                        which is another npm package we used for running our server.
+                    </li>
+                </p>
+                <p>
+                    So to conclude, we defined the final version of the "app.listen()" method in this "app.js" class. We say that the port
+                    should be either the port defined as an environment variable (when running the script, so 8081), and if not then when we
+                    run the server as per usual ("node app.js" or "nodemon app.js"), then the port is 8080.<br><br>
+                    To run the script on the other hand, we say ("npm run start-dev").
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

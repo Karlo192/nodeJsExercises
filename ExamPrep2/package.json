@@ -1,0 +1,19 @@
+{
+  "name": "ExamPrep2",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cross-env": "^7.0.3",
+    "express": "^4.17.1",
+    "express-session": "^1.17.2",
+    "socket.io": "^4.1.2"
+  }
+}

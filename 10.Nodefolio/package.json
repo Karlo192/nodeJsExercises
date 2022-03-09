@@ -1,0 +1,35 @@
+{
+  "name": "nodefolio",
+  "version": "0.0.1",
+  "description": "A personal portifolio project using Node.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start-dev": "cross-env PORT=8090 nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DavidKrtolica/NodeJsA.git"
+  },
+  "keywords": [
+    "portifolio",
+    "Node",
+    "personal"
+  ],
+  "author": "David Krtolica",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/DavidKrtolica/NodeJsA/issues"
+  },
+  "homepage": "https://github.com/DavidKrtolica/NodeJsA#readme",
+  "dependencies": {
+    "bootstrap": "^4.6.0",
+    "express": "^4.17.1",
+    "jquery": "^3.6.0",
+    "node-fetch": "^2.6.1",
+    "nodemailer": "^6.5.0"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3"
+  }
+}

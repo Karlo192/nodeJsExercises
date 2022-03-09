@@ -1,0 +1,22 @@
+[
+    {
+        "name": "Trek",
+        "size": "XL",
+        "id": 1
+    },
+    {
+        "name": "Cannondale",
+        "size": "L",
+        "id": 2
+    },
+    {
+        "name": "Cube",
+        "size": "M",
+        "id": 3
+    },
+    {
+        "name": "Trek",
+        "size": "S",
+        "id": 4
+    }
+]

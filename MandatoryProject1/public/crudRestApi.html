@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" type="text/css" href="/style.css">
+    <title>CRUD REST API</title>
+</head>
+<body>
+    <nav class="nav-bar">
+        <a class="nav-bar-item" href="/">Home</a>
+        <div class="dropdown">
+            <button class="dropbtn"> Content
+                <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+                <a href="/courseStart">Start of the course</a>
+                <a href="/express">About Express</a>
+                <a href="/nodemon">About Nodemon</a>
+                <a href="/crudRestApi">CRUD REST API</a>
+                <a href="/expressWideWeb">Express Wide Web</a>
+                <a href="/crossEnv">About cross-env</a>
+            </div>
+        </div>
+        <a class="nav-bar-item" href="/aboutme">About me</a>
+        <img src="/dk_logo.png" id="logo">
+    </nav>
+    <div class="main-page-container">
+        <div id="container-top">
+            <div id="header">
+                <h2>Preparing for a CRUD REST API...</h2>
+            </div>
+            <div id="container-content">
+                <p>
+                    Before creating our first CRUD REST API, we had to understand a few more important elements. As we already know from
+                    our previous semester, a CRUD API consists of 4 main parts:
+                </p>
+                <li>
+                    Methods for READING the data - in our case the GET HTTP method which retrieves all of the data which is to be read 
+                    in two different ways (get all ["/bikes"] and get by ID ["/bikes/5"], also ["/bikes?brand=TREK"])
+                </li>
+                <li>
+                    A method for CREATING data - POST HTTP method where we pass a JSON object in the body of the request and create a 
+                    new resource (also at ["/bikes"], so ID is auto-assigned)
+                </li>
+                <li>
+                    A method for UPDATING data - here we can use either PUT or PATCH HTTP method, to get a resource by some unique
+                    property only that resource has (obviously ID) and change some parts of it's data (endpoint is ["/bikes/ID"]
+                    where ID is the ID of the bike we want to update)
+                </li>
+                <li>
+                    Last is the DELETE data option - HTTP DELETE method for deleting a specific resource at corresponding ID, so once
+                    again we have ["/bikes/ID"] where ID is the ID of the wanted bike
+                </li>
+                <p>To be able to create all of these methods, we need 2 import elements: QUERY STRING and URL PATH VARIABLES...</p><br>
+                <div id="row-container">
+                    <img src="/url_anatomy.png" id="pic-content">
+                    <p style="margin: 40px 0 0 15px;">
+                        As we can see from this URL anatomy picture, we are interested in how to manipulate the elements at number 6  and 7
+                        because they are the ones we will use to filter out specific resources and manipulate them as we wish...<br><br><br>
+                        Number 6, the so called URL PATH, is something where we will pass the unique ID of the resource we want to read, update
+                        or delete. For example, if we want to delete a resource with the ID of 2, the endpoint would be ["/bikes/2"] and
+                        the method used would the the DELETE HTTP method...Same endpoint would be for all other actions as it points to a resource
+                        with this exact ID, but the code afterwards differs on the method.<br><br> Number 7 on the other hand, also called a
+                        "query string" is something we pass in the URL after the path variable and it is used to filter out the resources we
+                        are retrieveing by a specific property... For example, if the resources were bikes and they had a "brand property, and in
+                        our "database" we had a few bikes of the brand "Trek", we could retrieve all "Trek" bikes if the query string passed is 
+                        equal to "Trek" as in ["localhost:8081/bikes?brand=Trek"] -- so basically its implementation is in the GET method.
+                    </p>
+                </div>
+                <br>
+                <p>
+                    Here are a few examples and exercises we have done with path vars and query strings (and also the advanced "app.listen()"):
+                </p>
+                <br>
+                <img src="/pathvar_querystring.png" id="pic-content">
+                <img src="/applisten_advanced.png" id="pic-content">
+                <br>
+                <p>
+                    Both path and query string are properties of the req (request) object. To access the path, we use "req.params.PATH" and 
+                    to access the query string we say "req.query" - then once we get either of those we can create code  such as if statements
+                    where we check the query string or path passed with corresponding resource properties to filter them out.
+                </p>
+            </div>
+        </div>
+        <div id="container-top">
+            <div id="header">
+                <h2>Finished CRUD API</h2>
+            </div>
+            <div id="container-content">
+                <p>
+                    Now that we have most of the knowledge to create a complete CRUD REST API, we started working on one. But to do a CRUD
+                    we first had to decide on what is going to be our data... So we defined it as a "plants" array which contains multiple
+                    plant objects. These "plant" objects have 2 main props - "ID" and "name". We also have 2 more things to define - 
+                    the Express JSON body-parser which we will use in our POST method when creating a new plant, and an ID which will 
+                    from that point on auto-increment every time we create a new "plant" object. Here is how our "app.js" looks in the beginning: 
+                </p><br>
+                <img src="/plants_array.png" id="pic-content">
+                <p>
+                    Next are the methods for Creating, Reading, Updating and Deleting... In this section I will provide code snippets of my
+                    solutions for each one and briefly explain each one of them.
+                </p>
+                <img src="/get_methods.png" id="pic-content-smaller">
+                <br>
+                <p>
+                    Here we have the GET methods, one for retrieveing all "plant" object from the array, and one for finding a specific plant
+                    by its ID. In the first GET method, I have also implemented the query string option for searching, so that the API provides
+                    an option to search by the "name" property of the plant as well. If a query string is passed, then it is compared with the 
+                    name of each "plant" object from the array. If nothing is passed ("plantName == undefined"), the response object returns
+                    the whole "plants" array. In the GET by ID method, we do a very similiar thing - the passed "plant ID" is passed as a path 
+                    variable, taken from the "req.params" and then we traverse the array to find if there is any plant associated to that ID. If
+                    found, it is return as data through the "res.send()" method.
+                </p>
+                <br>
+                <div id="row-container">
+                    <img src="/post_method.png" id="pic-content">
+                    <img src="/post_postman.png" id="pic-content" style="margin-top: -6px;">
+                </div>
+                <p>
+                    Here we can find the POST method for creating a resource. To achieve this, we have to use the POSTMAN API which allows
+                    us to define the type of HTTP method we want to use and after passing the correct path ["localhost:8080/plants"] we can
+                    send the request body as raw JSON, which is accessed by the "req.body". We assign this JSON body to a "newPlant" object,
+                    define its ID and add it to our "plants" array using the "plants.push()" method. To be able to pass this body of the
+                    request, we had to define the "app.use(express.json());" line of code, which allows us to access and manipulate it.
+                </p>
+                <br>
+                <div id="row-container">
+                    <img src="/patch_method.png" id="pic-content">
+                    <p>
+                        The PATCH method is a bit more complex. Again, we find the wanted "plant" object by using the "req.params", as
+                        when we want to update a plant, first we must find it by its unique ID. Once found, we have to exchange the body
+                        of this "plant" object which is to be updated with the request body, without changing the ID itself (since we are
+                        not creating a new resource, we are updating an existing one.) So we use this "map()" object with a callback function
+                        in which we first check the corresponding IDs, and then we use so called SPREAD OPERATORS to take the "plant" object,
+                        assign the object which is sent in the body to the "plant" object and last to set its ID to the ID of the "plant" 
+                        which was previously found.<br><br>
+                        Essentially, we could have done it by assigning the "req.body" to an object called "updatedPlant", and then set the
+                        "updatedPlant" to the "plant" object which was found in the first place, but this way of updating is less efficient
+                        as we are creating new objects and using more memory.   
+                    </p>
+                </div>
+                <br>
+                <div id="row-container">
+                    <img src="/delete_method.png" id="pic-content">
+                    <p style="margin-top: 0;">
+                        Last but not least is the DELETE method. It is much simpler then the other methods. Here, we just get the passed
+                        path ID, and do a filter method on the "plants" array with a condition that if the "plant ID" and the path ID 
+                        are not the same, it should keep all of the "plant" object which fulfill this condition, and it should 
+                        filter out/ remove all "plant" objects which have the ID corresponding to the path ID. To explain on an example, 
+                        if we say ["localhost:8080/plants/2"] on a DELETE method, it will go through the "plants" array and keep all
+                        "plant" object which don't have an ID = 2, and remove the one which has. 
+                    </p>
+                </div>
+            <div>
+        </div>
+    </div>
+</body>
+</html>

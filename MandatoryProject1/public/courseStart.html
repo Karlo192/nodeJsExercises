@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/style.css">
+    <title>Start of the course</title>
+</head>
+<body>
+    <nav class="nav-bar">
+        <a class="nav-bar-item" href="/">Home</a>
+        <div class="dropdown">
+            <button class="dropbtn"> Content
+                <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+                <a href="/courseStart">Start of the course</a>
+                <a href="/express">About Express</a>
+                <a href="/nodemon">About Nodemon</a>
+                <a href="/crudRestApi">CRUD REST API</a>
+                <a href="/expressWideWeb">Express Wide Web</a>
+                <a href="/crossEnv">About cross-env</a>
+            </div>
+        </div>
+        <a class="nav-bar-item" href="/aboutme">About me</a>
+        <img src="/dk_logo.png" id="logo">
+    </nav>
+    <div class="main-page-container">
+        <div id="container-top">
+            <div id="header">
+                <h2>Start of the course</h2>
+            </div>
+            <div id="container-content">
+                <p>
+                    By the end of our first few Node.js classes, we had to go through 
+                    some Js basics. We worked with arrays, objects, strings and 
+                    did some console-logging as well. Here you can see a few code snippets
+                    from our first classes:
+                </p>
+                <br>
+                <div id="row-container">
+                    <img src="/js_basics.png" id="pic-content"/>
+                    <img src="/js_objects.png" id="pic-content" />
+                </div>
+                <p>
+                    Once the basics were covered and we were able to read the written code, 
+                    we started to create our own servers. This is the structure of the server,
+                    and to create it I will explain the process in steps...
+                </p>
+                <div id="row-container">
+                    <img src="/server_structure.png" id="pic-content" style="width: 250px; height: 170px;">
+                    <p>
+                        <b>STEP 1:</b><i> Create empty folder and make a "package.json" file</i><br><br>
+                        <b>STEP 2:</b><i> Open the "package.json" file and on line one, write curly brackets (as an
+                        annotation for an empty object, "{}")</i><br><br>
+                        <b>STEP 3:</b><i> Open up the terminal and do a "cd" command (to change directory) and specify path
+                        where you have created the "package.json" file</i><br><br>
+                        <b>STEP 4:</b><i> Run "npm install express" or "npm i express" in the terminal - this will install the 
+                        <a href="/express">EXPRESS</a> package which we will use as our minimalistic web framework for Node</i>
+                    </p>
+                </div>
+                <p>
+                    After these steps, 2 things happend - the Express dependency has been added to the "package.json" file, inside the
+                    empty curly-brackets annotation and a "package-lock.json" file was created, as well as a "node_modules" folder.
+                    This folder which is automatically added to the ".gitignore" file which acts as cache for all of the external modules
+                    we add to our project. To finish off the structure, we create an "app.js" Javascript file in which we will write code to
+                    use the Express package and create a CRUD REST API as well as a Web Server for serving HTML pages like in this case.
+                </p>
+            </div>
+        </div>
+        <div id="container-top">
+            <div id="header">
+                <h2>Setting up app.js</h2>
+            </div>
+            <div id="container-content">
+                <div id="row-container">
+                    <img src="/appjs_structure.png" id="pic-content">
+                    <p>
+                        Here we see an "app.js" file in which we start to use the Express package. First we import the package by 
+                        using the require method and setting it to a const called "express" - this is similar to the Java "import"
+                        statement. Then we create an "app" const and assign the "express" package to it by calling "express()". 
+                        Now the "app" const contains all of the Express methods and functions we will use. First one is the 
+                        GET method which actually represents the HTTP GET method - used for requesting and reading data from a specified
+                        source.<br><br>When calling this "get()" method, we pass the following params:<br><br><br>
+                        <b><i>1. PATH / ENDPOINT:</i></b><br>
+                        - this represents the endpoint through which we will access the data being read<br>
+                        - example "localhost:8080/" where "/" is the endpoint, and it servers an empty JSON object<br><br>
+                        <b><i>2. REQ & RES:</i></b><br>
+                        - "req" as in request, mostly used when a path variable or a query string is passed in the URL<br>
+                        - "res" as in response, used to send/serve the actual data<br>
+                        - "/me" endpoint - response object sends an object called "me", and this JSON object is represented on this
+                        exact path<br><br>        
+                    </p>
+                </div>
+                <p>
+                    Last line of code is the "app.listen()" method, which is used to assign a port through which we will access
+                    any of the endpoints defined in the "app.js" - any free port number can be passed here as so -- "app.listen(8081)" 
+                    which leads to "localhost:8081" and then any of the endpoints, either through the browser or for example
+                    Postman. This method later becomes more complex, as we create a callback function for error-logging
+                    and we also play around with scripts and running our server on custom ports. To follow up on the next material we learnt in
+                    this class, go to the CRUD REST API tab in the content dropdown or <a href="/crudRestApi">click here</a>.
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

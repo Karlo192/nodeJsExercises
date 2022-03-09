@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" type="text/css" href="/style.css">
+    <title>Express Wide Web</title>
+</head>
+<body>
+    <nav class="nav-bar">
+        <a class="nav-bar-item" href="/">Home</a>
+        <div class="dropdown">
+            <button class="dropbtn"> Content
+                <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+                <a href="/courseStart">Start of the course</a>
+                <a href="/express">About Express</a>
+                <a href="/nodemon">About Nodemon</a>
+                <a href="/crudRestApi">CRUD REST API</a>
+                <a href="/expressWideWeb">Express Wide Web</a>
+                <a href="/crossEnv">About cross-env</a>
+            </div>
+        </div>
+        <a class="nav-bar-item" href="/aboutme">About me</a>
+        <img src="/dk_logo.png" id="logo">
+    </nav>
+    <div class="main-page-container">
+        <div id="container-top">
+            <div id="header">
+                <h2>Creating a Web Server instead of an API</h2>
+            </div>
+            <div id="container-content">
+                <p>
+                    One of the last topics from our Node.Js class is creating an "Express Wide Web" server which is used to serve html
+                    pages at specific, similar to the GET HTTP method. Fot serving the pages, we are still using Express and also we 
+                    use the "app.get()" method where we pass an endpoint - but now inside the scope we use another method called 
+                    "res.sendFile()", and as a parameter this method takes a path of a specified file (in our case html files).
+                </p>
+                <br>
+                <div id="row-container">
+                    <img src="/webserver_appjs.png" id="pic-content">
+                    <img src="/webserver_structure.png" id="pic-content">
+                    <p>
+                        As we can see, the structure of our server has changed. Here we have added a so called "public" folder which contains
+                        all of the html pages, their corresponding css (which contain all of the page styling) and js files. 
+                    </p>
+                </div>
+                <br>
+                <p>
+                    Regarding the "app.js" file, we can also see a lot of changes. First one we can notice is the "express.static()" method
+                    on line 6. This method is a way for Express to allow of to statically use files from our project directory, and as a 
+                    parameter it takes a string which describes the path/folder which we want to use (in our case the "public" folder) with
+                    all of the html, css and js files we want to serve to specific endpoints. <br><br>
+                    So, at the ["/"] endpoint, we are using a GET method to serve the "welcome.html" file located at the path
+                    of [__dirname + "/public/welcome/welcome.html"]. Here we have also used the "__dirname" variable which provides/returns
+                    the value of the currenty directory in which we are. Same works for the ["/details"] endpoint, except we are serving
+                    another html file. On line 20 however we are doing a "res.redirect()" - this means that when we want to access the ["safeport"]
+                    endpoint, it automatically redirects us to the ["/details"] endpoint. This is called "Server-side redirection".
+                </p>
+                <br>
+                <div id="row-container">
+                    <img src="/html_page.png" id="pic-content">
+                    <p>
+                        This is one of our html files. In here, the important elements are the following:<br><br><br>
+                        - the "link" tag at line 6, where we use "href" to link the corresponding CSS file to this html file<br>
+                        - the "a" tag at line 14, where we once again have an "href", but this time it points to an endpoint
+                        (if we click this "a" tag, we will be redirected to this endpoint)<br>
+                        - the "script" tag at line 17, where we provide the "src" - source (in our case the "welcome.js") where we
+                        can manipulate with html elements by using Javascript
+                    </p>
+                </div>
+                <div id="row-container">
+                    <img src="/js_script.png" id="pic-content">
+                    <p>
+                        Here we have an example of a simple JS script which we used in our html page, and after 5 seconds of being
+                        on the page it "console.logs". It is a simple "setTimeout()" method which has a callback function as a parameter
+                        , as well as the number of seconds for it to execute after. We can see an out-commented line of code which
+                        executes the Client-side redirection to the ["/details"] endpoint.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

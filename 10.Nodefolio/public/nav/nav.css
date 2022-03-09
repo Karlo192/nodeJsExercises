@@ -1,0 +1,146 @@
+/* NAVBAR STYLING */
+
+.nav-bar {
+    background-color: #ffb266;
+    overflow: hidden;
+}
+
+.nav-bar-item {
+    float: left;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    font-family: 'Segoe UI';
+}
+
+#navbar-logo {
+    float: left;
+    width: 3.5em;
+    height: 3.3em;
+    mix-blend-mode: multiply;
+}
+
+.nav-bar a:hover {
+    background-color: whitesmoke;
+    color: black;
+}
+
+.nav-bar a.active {
+    background-color: greenyellow;
+    color: white;
+}
+
+/* ----------------------------------------------------------------------------------------------------------------------------------------- */
+
+/* MAIN BODY PARTS STYLING */
+
+body {
+    padding: 0;
+    margin: 0;
+    line-height: 1.5;
+}
+
+#main-header {
+    margin-bottom: 40px;
+}
+
+#main-content {
+    min-height: calc(100vh - 110px);
+    margin: 20px 0 0 25px;
+}
+
+/* ----------------------------------------------------------------------------------------------------------------------------------------- */
+
+/* CONTACT ME PAGE STYLING */
+
+#social-media {
+    margin-bottom: 65px;
+}
+
+#logo {
+    width: 60px;
+    height: 53px;
+    float: right;
+    margin-right: 15px;
+    float: left;
+    mix-blend-mode: multiply;
+}
+
+/* ----------------------------------------------------------------------------------------------------------------------------------------- */
+
+/* FRONT PAGE STYLING */
+
+#row-container {
+    display: flex;
+    flex-direction: row;
+}
+
+#me-pic {
+    width: 42rem;
+    height: 22rem;
+    margin: 5px 30px 20px 0;
+    border-radius: 10px;
+    box-shadow: 10px 10px 5px #ccc;
+}
+
+#me-paragraph {
+    margin: 30px 75px 0 30px;
+}
+
+/* ----------------------------------------------------------------------------------------------------------------------------------------- */
+
+/* PROJECTS PAGE STYLING */
+
+#project {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 50px;
+}
+
+.project-pic {
+    width: 9rem;
+    height: 9rem;
+    margin-right: 40px;
+}
+
+/* ----------------------------------------------------------------------------------------------------------------------------------------- */
+
+/* MY RESUME PAGE STYLING */
+
+#cv-images-container {
+    margin-left: 185px;
+}
+
+/* ----------------------------------------------------------------------------------------------------------------------------------------- */
+
+/* MY SCHEDULE PAGE STYLING */
+
+.styled-table {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.styled-table thead tr {
+    background-color: #009879;
+    color: #ffffff;
+    text-align: left;
+}
+
+.styled-table th {
+    background-color: #f3f3f3
+}
+
+.styled-table th,
+.styled-table td {
+    padding: 12px 15px;
+}
+
+.styled-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+}

@@ -1,0 +1,17 @@
+{
+  "name": "weatherforecastintegrationapi_shape",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "weather integration api layer for consuming a 3rd party api",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-rate-limit": "^6.2.1",
+    "node-fetch": "^3.2.0"
+  }
+}

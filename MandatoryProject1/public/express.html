@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" type="text/css" href="/style.css">
+    <title>About Express</title>
+</head>
+<body>
+    <nav class="nav-bar">
+        <a class="nav-bar-item" href="/">Home</a>
+        <div class="dropdown">
+            <button class="dropbtn"> Content
+                <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+                <a href="/courseStart">Start of the course</a>
+                <a href="/express">About Express</a>
+                <a href="/nodemon">About Nodemon</a>
+                <a href="/crudRestApi">CRUD REST API</a>
+                <a href="/expressWideWeb">Express Wide Web</a>
+                <a href="/crossEnv">About cross-env</a>
+            </div>
+        </div>
+        <a class="nav-bar-item" href="/aboutme">About me</a>
+        <img src="/dk_logo.png" id="logo">
+    </nav>
+    <div class="main-page-container">
+        <div id="container-top">
+            <div id="header">
+                <h2>What is Express?</h2>
+            </div>
+            <div id="container-content">
+                <p>
+                    Briefly explained, "express" is a Javascript package, or to be more precise it is a Node.js module that is available
+                    through the npm registry. To use it, we first have to have Node.js installed on our computers. Once Node is installed,
+                    we open our project directory where we want to install "express" (as mentioned before, we open an empty folder and create
+                    an empty "package.json" file with an empty "{}" annotation) and we run "npm install express" as a terminal command in the
+                    wanted directory (which we can access using the terminal command "cd" meaning "change directory"). Now, in our "package.json"
+                    , we will see the express dependency installed like this:
+                </p>
+                <br>
+                <div id="row-container">
+                    <img src="/express_dep.png" id="pic-content">
+                    <p>
+                        Here, the "^4.17.1" is the assignment of the "express" package version, meaning that we will use version 4.17.1 or
+                        higher... If we were to add more dependencies like express, they would be added here next to "express".
+                    </p>
+                </div>
+                <br>
+                <p>
+                    By documentation, "express" is defined as a "fast, unopinionated, minimalist web framework for node". Also, they say
+                    that "the Express philosophy is to provide small, robust tooling for HTTP servers, making it a great solution for single page 
+                    applications, web sites, hybrids, or public HTTP APIs". In our case, this wasa exactly what we needed to create our first
+                    <a href="/crudRestApi">API</a> and <a href="/expressWideWeb">Web-server</a>, with a minimum understanding of Javascript
+                    basics.<br><br>
+                    So once we got everything installed, we moved on to create our first server. To see how this worked out and how we
+                    manifested the usage of "express", visit the <a href="/courseStart">Course Start page</a> where you can find the basic
+                    usage and structure of our "express" server.
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

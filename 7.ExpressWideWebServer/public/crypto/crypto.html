@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Crypto currency</title>
+</head>
+<body>
+    <h1>Real time crypto prices...</h1>
+    <div>
+        <h3>Bitcoin</h3>
+        <p id="bitcoin-price"></p>
+    </div>
+    <br>
+    <div>
+        <h3>Ethereum</h3>
+        <p id="ethereum-price"></p>
+    </div>
+    <!-- https://api.coinlore.net/api/global/ -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>   
+    <script>
+        /* //GET THE PRICE OF BITCOIN
+        $.get("https://api.coinlore.net/api/ticker/?id=90", (data)=> {
+            //$("#bitcoin-price").text(data[0].price_usd + ' $'); - JQUERY
+            const bitcoinParagraph = document.getElementById("bitcoin-price");
+            bitcoinParagraph.innerText = "$" + data[0].price_usd;
+        });
+        //GET THE PRICE OF ETHEREUM
+        $.get("https://api.coinlore.net/api/ticker/?id=80", (data) => {
+            //$("#ethereum-price").text(data[0].price_usd + ' $'); - JQUERY
+            const ethereumParagraph = document.getElementById("ethereum-price");
+            ethereumParagraph.innerText = "$" + data[0].price_usd;
+        }); */
+
+        //FETCH FOR BITCOIN PRICE - ASYNC AWAIT
+        (async function() {
+            const response = await fetch("https://api.coinlore.net/api/ticker/?id=90")
+            const result = await response.json();
+            const bitcoinParagraph = document.getElementById("bitcoin-price");
+            bitcoinParagraph.innerText = "$" + result[0].price_usd;
+        })();
+        //FETCH FOR ETHEREUM PRICE
+        fetch("https://api.coinlore.net/api/ticker/?id=80")
+        .then(response => response.json())
+        .then(result => {
+            document.getElementById("ethereum-price").innerText = "$" + result[0].price_usd; 
+        });
+    </script>
+</body>
+</html>

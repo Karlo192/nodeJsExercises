@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" type="text/css" href="/style.css">
+    <title>About Nodemon</title>
+</head>
+<body>
+    <nav class="nav-bar">
+        <a class="nav-bar-item" href="/">Home</a>
+        <div class="dropdown">
+            <button class="dropbtn"> Content
+                <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+                <a href="/courseStart">Start of the course</a>
+                <a href="/express">About Express</a>
+                <a href="/nodemon">About Nodemon</a>
+                <a href="/crudRestApi">CRUD REST API</a>
+                <a href="/expressWideWeb">Express Wide Web</a>
+                <a href="/crossEnv">About cross-env</a>
+            </div>
+        </div>
+        <a class="nav-bar-item" href="/aboutme">About me</a>
+        <img src="/dk_logo.png" id="logo">
+    </nav>
+    <div class="main-page-container">
+        <div id="container-top">
+            <div id="header">
+                <div id="row-container">
+                    <h2>Nodemon</h2>
+                    <img src="nodemon.png" id="pic-content" style="width: 50px;">
+                </div>
+            </div>
+            <div id="container-content">
+                <p>
+                    So what is Nodemon? Nodemon is a very useful tool, or to be precise an npm package, that allows developers to easily
+                    restart their node applications with having to manually stop and start them over and over. The usual process is to run
+                    an application via "node app.js", then when we implement a change, we first stop the server (CTRL + c) and start it 
+                    again using the same command.<br><br>
+                    Nodemon on the other hand recognizes all file changes from our directory, and as soon as a change happens, it restarts
+                    the application by stopping and starting it again itself... And for its usage, it is extremely simple to use - just instead
+                    of writing "node", we just say "nodemon" and then the .js file. When installing Nodemon, we do not install it like "express"
+                    or the "cross-env" dependency - the reason behind this is that we of course can do that, but we were suggested by our teacher
+                    to simply install "Nodemon" globally, so that we can use it for any project/ application we create and not only for a specific
+                    one.<br><br> 
+                    To install "Nodemon" globally, we have to write this command in the terminal: ("npm install -g nodemon") - now it is 
+                    installed globally to our system path. To get it as a dev-tool (so like "cross-env"), we run ("npm install --save-dev nodemon").
+                </p>
+                <br>
+                <div id="row-container">
+                    <img src="/nodemon_terminal.png" id="pic-content">
+                    <p style="margin-top: 60px;">
+                        On this screenshot we can see that I ran the script as mentioned in the <a href="/crossEnv">cross-env page</a>,
+                        and then the script runs the command "nodemon app.js".<br><br>
+                        Then we see that "nodemon" is starting, saying at what path, which version of it is running and also what commands
+                        to run if we want to restart "nodemon" itself. We can also see that there were some changes made, so "nodemon"
+                        did the refreshing itself (3 times in total automatically and once I ran the rs command to manually restart). 
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
